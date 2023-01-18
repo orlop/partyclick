@@ -7,7 +7,7 @@ rxPin = 13 # Broadcom pin 27 (Board pin 13) - UART RX
 
 # Pin Setup:
 GPIO.setmode(GPIO.BOARD) # Broadcom pin-numbering scheme    
-GPIO.setup(rxPin, GPIO.SERIAL) # Button pin set as input w/ pull-up
+GPIO.setup(rxPin, GPIO.IN, GPIO.PUD_DOWN) # Button pin set as input w/ pull-up
 
 # Read GPIO
 print("Here we go! Press CTRL+C to exit")
