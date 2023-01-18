@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import time
 
 # Pin Definitons:
-rxPin = 10 # Broadcom pin 15 (P1 pin 10) - UART RX
+rxPin = 11 # Broadcom pin 15 (P1 pin 10) - UART RX
 
 # Pin Setup:
 GPIO.setmode(GPIO.BOARD) # Broadcom pin-numbering scheme    
