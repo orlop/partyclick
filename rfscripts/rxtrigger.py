@@ -11,7 +11,7 @@ GPIO.setup(17, GPIO.IN, pull_up_down=GPIOPUD_DOWN) # GPIO BCM Pin 27 = Board Pin
 GPIO.setup(27, GPIO.IN, pull_up_down=GPIOPUD_UP) # GPIO BCM Pin 27 = Board Pin 13
 
 # Threaded Callback
-def rf_callback(channel)
+def rf_callback(channel):
     print "GPIO 27 triggered."
 
 GPIO.add_event_detect(24, GPIO.RISING, calback=rf_callback)
