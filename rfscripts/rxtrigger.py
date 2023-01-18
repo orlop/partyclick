@@ -1,18 +1,21 @@
-# External module imports
+#!/usr/bin/env pythonš
+# script to monitor GPIO for RF signals and trigger camera when the right button is pressed
+# by Daniel Severa, Jr. | Tweak Post s.r.o., 2023
+
+# dependencies
 import RPi.GPIO as GPIO
-import time
 
-# Pin Definitons:
-rxPin = 13 # Broadcom pin 27 (Board pin 13) - UART RX
+# se tup GPIO pins
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIOPUD_DOWN) # GPIO BCM Pin 27 = Board Pin 11
+GPIO.setup(27, GPIO.IN, pull_up_down=GPIOPUD_UP) # GPIO BCM Pin 27 = Board Pin 13
 
-# Pin Setup:
-GPIO.setmode(GPIO.BOARD) # Broadcom pin-numbering scheme    
-GPIO.setup(rxPin, GPIO.IN) # Button pin set as input w/ pull-up
+# Threaded Callback
+def rf_callback(channel)
+    print "GPIO 27 triggered."
 
-# Read GPIO
-print("Here we go! Press CTRL+C to exit")
+GPIO.add_event_detect(24, GPIO.RISING, calback=rf_callback)
+
 try:
-    while 1:
-        print(GPIO.input(rxPin))
-except KeyboardInterrupt: # If CTRL+C is pressed, exit cleanly:
-    GPIO.cleanup() # cleanup all GPIO
+    print "Waiting for a physical button press."
+    GPIO.wait_for_edge(17)
