@@ -7,8 +7,8 @@ import RPi.GPIO as GPIO
 
 # se tup GPIO pins
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_OFF) # GPIO BCM Pin 17 = Board Pin 11
-GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # GPIO BCM Pin 27 = Board Pin 13
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
+GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_OFF) # GPIO BCM Pin 27 = Board Pin 13
 
 # Threaded Callback
 def rf_callback(channel):
