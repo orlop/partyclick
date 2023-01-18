@@ -31,7 +31,7 @@ args = parser.parse_args()
 
 signal.signal(signal.SIGINT, exithandler)
 rfdevice = RFDevice(args.gpio)
-rfdevice.enable_rx()
+
 timestamp = None
 logging.info("Listening for codes on GPIO " + str(args.gpio))
 
@@ -46,7 +46,9 @@ GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_OFF) # GPIO BCM Pin 27 = Board Pin
 # Threaded Callback
 def rf_callback(channel):
     print("GPIO 27 triggered.")
+    rfdevice.enable_rx()
     print(rfdevice.rx_code)
+    rfdevice.disable_rx()
 
 
 GPIO.add_event_detect(27, GPIO.RISING, callback=rf_callback)
