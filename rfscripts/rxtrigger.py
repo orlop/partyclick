@@ -18,7 +18,7 @@ GPIO.add_event_detect(27, GPIO.RISING, callback=rf_callback)
 
 try:
     print("Waiting for a physical button press.")
-    GPIO.wait_for_edge(17)
+    GPIO.wait_for_edge(17, GPIO.FALLING)
     print("Button pressed.")
 
 except KeyboardInterrupt:
