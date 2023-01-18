@@ -14,7 +14,7 @@ GPIO.setup(27, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # GPIO BCM Pin 27 = Board Pi
 def rf_callback(channel):
     print("GPIO 27 triggered.")
 
-GPIO.add_event_detect(27, GPIO.RISING, callback=rf_callback)
+GPIO.add_event_detect(27, GPIO.BOTH, callback=rf_callback)
 
 try:
     print("Waiting for a physical button press.")
