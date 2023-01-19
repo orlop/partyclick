@@ -16,7 +16,8 @@ from rpi_rf import RFDevice
 
 # Define capture variables
 square_width=512
-capture_filename="/home/partyclick/shared/RFimage.jpg"
+#capture_filename="/home/partyclick/shared/RFimage.jpg"
+capture_filename="/home/partyclick/shared/fbitest.jpg"
 
 
 
