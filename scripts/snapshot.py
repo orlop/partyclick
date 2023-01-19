@@ -20,7 +20,7 @@ def snap(square_width, capture_filename):
     print(capture_config)
 
     # Start the camera with the config and no preview
-    picam2 = picam2.configure(capture_config)
+    picam2.configure(capture_config)
     picam2.start(show_preview=False)
 
 
