@@ -11,9 +11,7 @@ import subprocess
 import time
 
 # snap() takes a picture, saves it and outputs through HDMI
-def snap(picam2, square_width, capture_filename):
-    size=(square_width,square_width)
-
+def snap(picam2, capture_filename):
     # define camera
     picam2 = picam2
 
