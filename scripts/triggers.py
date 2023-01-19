@@ -15,6 +15,7 @@ import logging
 import RPi.GPIO as GPIO
 from rpi_rf import RFDevice
 
+
 # Define capture variables
 square_width=512
 #capture_filename="/home/partyclick/shared/RFimage.jpg"

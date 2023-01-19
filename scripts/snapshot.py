@@ -14,6 +14,9 @@ import time
 def snap(square_width, capture_filename):
     size=(square_width,square_width)
 
+    # define camera
+    picam2 = Picamera2()
+
     # Build capture config and set capture size
     capture_config = picam2.create_still_configuration()
     capture_config['main']['size'] = size
