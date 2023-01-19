@@ -8,4 +8,4 @@ from picamera2 import Picamera2, Preview
 import time
 
 picam2 = Picamera2()
-picam2.capture_file("/home/partyclick/test.jpg")
+picam2.capture_file("test.jpg")
