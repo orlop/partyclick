@@ -13,4 +13,4 @@ import time
 def snap():
     picam2 = Picamera2()
 
-    picam2.start_and_capture_file(name="/home/partyclick/shared/image.jpg", delay=0, capture_mode="still", showPreview=False)
+    picam2.start_and_capture_file(name="/home/partyclick/shared/image.jpg", delay=0, capture_mode="still", show_preview=False)
