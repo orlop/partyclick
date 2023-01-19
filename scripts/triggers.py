@@ -21,6 +21,13 @@ square_width=512
 #capture_filename="/home/partyclick/shared/RFimage.jpg"
 capture_filename="/home/partyclick/shared/fbitest.jpg"
 
+# set up camera
+picam2 = Picamera2()
+# Start the camera with the config and no preview
+picam2.preview_configuration.main.size = size # set capture size
+picam2.configure("preview") # Build capture config
+picam2.start(show_preview=False)
+
 # se tup GPIO pins
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
@@ -28,7 +35,7 @@ GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
    print("Arcade button triggered.")
-   snap(square_width=square_width,capture_filename=capture_filename) 
+   snap(picam2=picam2, square_width=square_width,capture_filename=capture_filename) 
    time.sleep(1)  # prevent registering multiple times 
 
 
@@ -63,7 +70,7 @@ while True:
    if rfdevice.rx_code_timestamp != timestamp: 
        timestamp = rfdevice.rx_code_timestamp 
        if str(rfdevice.rx_code) == code_of_interest: 
-           snap(square_width=square_width,capture_filename=capture_filename) 
+           snap(picam2=picam2, square_width=square_width,capture_filename=capture_filename) 
            time.sleep(1)  # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()
