@@ -4,8 +4,10 @@
 
 # picamera2 is the new libcamera based python library.
 # Required for the proper functionality of Raspberry Pi Camera Module v3
-from picamera2 import Picamera2, Preview 
+from picamera2 import Picamera2
 import time
 
 picam2 = Picamera2()
-picam2.start_and_capture_file("test.jpg")
+capture_config = picam2.create_still_configuration()
+picam2.start(show_preview=False)
+picam2.switch_mode_and_capture_file(capture_config, "image.jpg")
