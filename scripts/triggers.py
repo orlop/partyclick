@@ -61,7 +61,6 @@ code_of_interest = '5518280'
 while True: 
    if rfdevice.rx_code_timestamp != timestamp: 
        timestamp = rfdevice.rx_code_timestamp 
-       print(str(rfdevice.rx_code)) 
        if str(rfdevice.rx_code) == code_of_interest: 
            snap(square_width=square_width,capture_filename=capture_filename) 
            time.sleep(1)  # prevent registering multiple times 

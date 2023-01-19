@@ -12,7 +12,8 @@ import time
 
 # snap() takes a picture, saves it and outputs through HDMI
 def snap(square_width, capture_filename):
-    picam2 = Picamera2()
+    if(!picam2)
+        picam2 = Picamera2()
     size=(square_width,square_width)
 
     # Build capture config and set capture size
