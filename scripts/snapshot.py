@@ -16,7 +16,7 @@ def snap(square_width, capture_filename):
 
     # Build capture config and set capture size
     capture_config = picam2.create_still_configuration()
-    capture_config['size'] = size
+    capture_config['main']['size'] = size
     print(capture_config)
 
     # Start the camera with the config and no preview
