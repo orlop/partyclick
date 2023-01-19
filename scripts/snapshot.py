@@ -12,8 +12,6 @@ import time
 
 # snap() takes a picture, saves it and outputs through HDMI
 def snap(square_width, capture_filename):
-    if not picam2:
-        picam2 = Picamera2()
     size=(square_width,square_width)
 
     # Build capture config and set capture size
@@ -27,10 +25,10 @@ def snap(square_width, capture_filename):
 
 
     picam2.capture_file(capture_filename)
+    time.sleep(1)
     picam2.stop()
 
-    time.sleep(1)
-
+    # Execute bash command fbi to send the photo to the HDMI (--vt 1) output
     bashCommand = "sudo fbi --autozoom --noverbose --vt 1 /home/partyclick/shared/fbitest.jpg"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
