@@ -12,6 +12,7 @@ import sys
 import time
 import logging
 
+import RPi.GPIO as GPIO
 from rpi_rf import RFDevice
 
 # Define capture variables
@@ -19,6 +20,9 @@ square_width=512
 #capture_filename="/home/partyclick/shared/RFimage.jpg"
 capture_filename="/home/partyclick/shared/fbitest.jpg"
 
+# se tup GPIO pins
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
@@ -27,7 +31,7 @@ def arcadebtn_callback(channel):
    time.sleep(1)  # prevent registering multiple times 
 
 
-GPIO.add_event_detect(17, GPIO.FALLING, callback=arcadebtn_callback)
+GPIO.add_event_detect(17, GPIO.FALLING, callback=arcadebtn_callback) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
 
 
 
