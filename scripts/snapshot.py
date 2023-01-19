@@ -7,9 +7,10 @@
 # picamera2 is the new libcamera based python library.
 # Required for the proper functionality of Raspberry Pi Camera Module v3
 from picamera2 import Picamera2
+import subprocess
 import time
 
-# snap() takes a picture and saves it to a shared SMB location
+# snap() takes a picture, saves it and outputs through HDMI
 def snap(square_width, capture_filename):
     picam2 = Picamera2()
     size=(square_width,square_width)
@@ -25,3 +26,9 @@ def snap(square_width, capture_filename):
 
 
     picam2.capture_file(capture_filename)
+
+    
+
+    bashCommand = "sudo fbi --autozoom --noverbose --vt 1 fbitest.jpg
+    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+    output, error = process.communicate()
