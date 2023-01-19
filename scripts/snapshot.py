@@ -12,6 +12,5 @@ import time
 # snap() takes a picture and saves it to a shared SMB location
 def snap():
     picam2 = Picamera2()
-    capture_config = picam2.create_still_configuration()
-    picam2.start(show_preview=False)
-    picam2.capture_file(capture_config, "/home/partyclick/shared/image.jpg")
+
+    picam2.start_and_capture_file(name="/home/partyclick/shared/image.jpg", delay=0, captire_mode="still", showPreview=False)
