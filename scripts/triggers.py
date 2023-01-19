@@ -14,6 +14,7 @@ import logging
 
 import RPi.GPIO as GPIO
 from rpi_rf import RFDevice
+from picamera2 import Picamera2
 
 
 # Define capture variables
