@@ -10,7 +10,12 @@ from picamera2 import Picamera2
 import time
 
 # snap() takes a picture and saves it to a shared SMB location
-def snap():
+def snap(square_width, capture_filename):
     picam2 = Picamera2()
+    size=(square_width,square_width)
+    capture_config = picam2.create_still_configuration()
+    print(capture_config)
+    picam2.start(show_preview=False)
 
-    picam2.start_and_capture_file(name="/home/partyclick/shared/image.jpg", delay=0, capture_mode="still", show_preview=False)
+
+    picam2.capture_file(capture_filename)

@@ -6,4 +6,4 @@
 
 from snapshot import snap
 
-snap()
+snap(square_width=512,capture_filename="/home/partyclick/shared/image.jpg")
