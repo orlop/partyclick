@@ -29,6 +29,6 @@ def snap(square_width, capture_filename):
 
     
 
-    bashCommand = "sudo fbi --autozoom --noverbose --vt 1 fbitest.jpg
+    bashCommand = "sudo fbi --autozoom --noverbose --vt 1 fbitest.jpg"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
