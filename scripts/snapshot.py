@@ -2,7 +2,9 @@
 # a part of the Diffusionbooth/Partyclick project
 # https://github.com/orlop/partyclick.git
 
-# snapshot.py takes care of the camera logic
+'''
+snapshot.py takes care of the camera logic
+'''
 
 # picamera2 is the new libcamera based python library.
 # Required for the proper functionality of Raspberry Pi Camera Module v3
