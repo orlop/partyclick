@@ -12,7 +12,7 @@ import time
 # SET PINS
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
-GPIO.setup(21,GPIO.OUT) # BCM pin 21, Board pin 40
+GPIO.setup(21,GPIO.OUT, pull_up_down=GPIO.PUD_UP) # BCM pin 21, Board pin 40
 
 print("LED on")
 GPIO.output(21,GPIO.HIGH)
