@@ -14,8 +14,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 GPIO.setup(21,GPIO.OUT) # BCM pin 21, Board pin 40
 
-print "LED on"
+print("LED on")
 GPIO.output(21,GPIO.HIGH)
 time.sleep(1)
-print "LED off"
+print("LED off")
 GPIO.output(21,GPIO.LOW)
