@@ -21,6 +21,9 @@ from picamera2 import Picamera2
 square_width=512
 capture_filename="/home/partyclick/shared/fbitest.jpg"
 
+RFPin = 23 # Data pin (yellow wire) for the RF receiver
+ArcadeBtnPin = 16 # Pulldown pin (green wire) for the Arcade Button
+
 #ahoj
 # set up camera
 picam2 = Picamera2()
@@ -31,7 +34,7 @@ picam2.start(show_preview=False)
 
 # se tup GPIO pins
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(17, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
+GPIO.setup(ArcadeBtnPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
@@ -57,7 +60,7 @@ def exithandler(signal, frame):
 logging.basicConfig(level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S', 
                    format='%(asctime)-15s - [%(levelname)s] %(module)s: %(message)s', ) 
 parser = argparse.ArgumentParser(description='Receives a decimal code via a 433/315MHz GPIO device') 
-parser.add_argument('-g', dest='gpio', type=int, default=27, 
+parser.add_argument('-g', dest='gpio', type=int, default=RFPin, 
                    help="GPIO pin (Default: 27)") 
 args = parser.parse_args() 
 signal.signal(signal.SIGINT, exithandler) 
