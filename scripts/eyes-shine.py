@@ -28,6 +28,3 @@ def flash():
 
     print("LED on")
     GPIO.output(21,GPIO.HIGH)
-    time.sleep(3)
-    print("LED off")
-    GPIO.output(21,GPIO.LOW)
