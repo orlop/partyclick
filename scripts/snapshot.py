@@ -24,3 +24,6 @@ def snap(picam2, capture_filename):
     bashCommand = "sudo fbi --autozoom --noverbose --vt 1 /home/partyclick/shared/fbitest.jpg"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
+
+
+snap(picam2=picam2, capture_filename=capture_filename)

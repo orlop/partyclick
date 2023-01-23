@@ -35,6 +35,8 @@ picam2.start(show_preview=False)
 # se tup GPIO pins
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(ArcadeBtnPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
+GPIO.setup(RFPin, GPIO.IN) # set up as an input
+
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
