@@ -15,6 +15,7 @@ import logging
 import RPi.GPIO as GPIO
 from rpi_rf import RFDevice
 from picamera2 import Picamera2
+from libcamera import Transform
 
 
 # Define capture variables
@@ -28,6 +29,8 @@ ArcadeBtnPin = 16 # Pulldown pin (green wire) for the Arcade Button
 # set up camera
 picam2 = Picamera2()
 # Start the camera with the config and no preview
+preview_config = picam2.create_preview_configuration(transform=Transform(hflip=True))
+picam2.configure(preview_config)
 picam2.preview_configuration.main.size = (square_width, square_width) # set capture size
 picam2.configure("preview") # Build capture config
 picam2.transform=Transform(vflip=1)
