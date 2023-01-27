@@ -17,6 +17,8 @@ from rpi_rf import RFDevice
 from picamera2 import Picamera2
 from libcamera import Transform
 
+from neopixels import pixelanim
+
 
 # Define capture variables
 square_width=512
