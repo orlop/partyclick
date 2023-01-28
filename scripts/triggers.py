@@ -30,7 +30,7 @@ ArcadeBtnPin = 16 # Pulldown pin (green wire) for the Arcade Button
 # set up camera
 picam2 = Picamera2()
 # Start the camera with the config and no preview
-preview_config = picam2.create_preview_configuration(transform=Transform(hflip=True))
+preview_config = picam2.create_preview_configuration(transform=Transform(vflip=True))
 picam2.configure(preview_config)
 picam2.preview_configuration.main.size = (square_width, square_width) # set capture size
 picam2.configure("preview") # Build capture config
