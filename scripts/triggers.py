@@ -34,8 +34,8 @@ picam2 = Picamera2()
 preview_config = picam2.create_preview_configuration(transform=Transform(vflip=True))
 picam2.configure(preview_config)
 picam2.preview_configuration.main.size = (square_width, square_width) # set capture size
-picam2.configure("preview") # Build capture config
-picam2.transform=Transform(vflip=1)
+#picam2.configure("preview") # Build capture config
+#picam2.transform=Transform(vflip=1)
 picam2.start(show_preview=False)
 
 # se tup GPIO pins
