@@ -48,4 +48,4 @@ else:
 
         pnginfo = PngImagePlugin.PngInfo()
         pnginfo.add_text("parameters", response2.json().get("info"))
-        image.save('img2img.png', pnginfo=pnginfo)
+        image.save(img2img_name, pnginfo=pnginfo)
