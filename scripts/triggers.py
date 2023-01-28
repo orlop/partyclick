@@ -22,7 +22,7 @@ from flash import flash_off, flash_on
 
 # Define capture variables
 square_width=512
-capture_filename="/home/partyclick/shared/fbitest.jpg"
+capture_filename="/home/partyclick/shared/snapshot.jpg"
 
 RFPin = 23 # Data pin (yellow wire) for the RF receiver
 ArcadeBtnPin = 16 # Pulldown pin (green wire) for the Arcade Button
@@ -34,8 +34,6 @@ picam2 = Picamera2()
 preview_config = picam2.create_preview_configuration(transform=Transform(vflip=True))
 picam2.configure(preview_config)
 picam2.preview_configuration.main.size = (square_width, square_width) # set capture size
-#picam2.configure("preview") # Build capture config
-#picam2.transform=Transform(vflip=1)
 picam2.start(show_preview=False)
 
 # se tup GPIO pins

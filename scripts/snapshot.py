@@ -14,17 +14,18 @@ import time
 
 from flash import flash
 
+
+
+
 # snap() takes a picture, saves it and outputs through HDMI
 def snap(picam2, capture_filename):
     # define camera
     picam2 = picam2
 
-    flash()
-
     picam2.capture_file(capture_filename)
     time.sleep(1)
 
     # Execute bash command fbi to send the photo to the HDMI (--vt 1) output
-    bashCommand = "sudo fbi --autozoom --noverbose --vt 1 /home/partyclick/shared/fbitest.jpg"
+    bashCommand = "sudo fbi --autozoom --noverbose --vt 1 /home/partyclick/shared/snapshot.jpg"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
