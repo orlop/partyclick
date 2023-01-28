@@ -12,7 +12,6 @@ from picamera2 import Picamera2
 import subprocess
 import time
 
-from neopixel import pixelanim
 from flash import flash
 
 # snap() takes a picture, saves it and outputs through HDMI
