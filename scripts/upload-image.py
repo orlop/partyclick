@@ -11,7 +11,7 @@ from pyqrcode import QRCode
 import ftplib
 
 # set up image filenames and server variables
-filename = "img2img.png"
+filename = "img2img.jpg"
 
 ftp = "ftp.tweakpost.cz"
 username = "tweakpost.cz"
@@ -19,7 +19,7 @@ password = "nEa30q49QSjA"
 ftp_domain = "tweakpost_cz"
 ftp_subdomain = "partyclick"
 
-local_subdirectory = "images"
+local_subdirectory = "/home/partyclick/shared/"
 
 
 local_path = local_subdirectory + "/" + filename
