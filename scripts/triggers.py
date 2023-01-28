@@ -16,6 +16,7 @@ import RPi.GPIO as GPIO
 from rpi_rf import RFDevice
 from picamera2 import Picamera2
 from libcamera import Transform
+from flash import flash_off, flash_on
 
 
 
@@ -81,7 +82,9 @@ while True:
    if rfdevice.rx_code_timestamp != timestamp: 
        timestamp = rfdevice.rx_code_timestamp 
        if str(rfdevice.rx_code) == code_of_interest: 
-           snap(picam2=picam2, capture_filename=capture_filename) 
-           time.sleep(1)  # prevent registering multiple times 
+            flash_on()
+            snap(picam2=picam2, capture_filename=capture_filename)
+            time.sleep(1)  # prevent registering multiple times 
+            flash_off()
    time.sleep(0.01) 
 rfdevice.cleanup()
