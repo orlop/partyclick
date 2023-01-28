@@ -84,5 +84,8 @@ while True:
             snap(picam2=picam2, capture_filename=capture_filename)
             time.sleep(1)  # prevent registering multiple times 
             flash_off()
+            exec(open('/scripts/automatic-lambda-img2img.py').read())
+            exec(open('/scripts/upload-image.py').read())
+            exec(open('/scripts/epd-pillow-image.py').read())
    time.sleep(0.01) 
 rfdevice.cleanup()
