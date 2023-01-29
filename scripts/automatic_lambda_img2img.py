@@ -20,14 +20,14 @@ def automatic_lambda_img2img():
         "init_images": [
             GoodEncoded
         ],
-        "prompt": "paw patrol dog wearing a uniform",
+        "prompt": "paw patrol (dog) wearing a uniform",
         "negative_prompt": "human, boy, girl, kitsch, ugly, oversaturated, grain, low-res, Deformed, blurry",
-        "steps": 45,
+        "steps": 20,
         "width": 512,
         "height": 512,
         "sampler_index": "Euler a",
-        "cfg_scale": 7,
-        "denoising_strength": 0.55
+        "cfg_scale": 11,
+        "denoising_strength": 0.45
     }
 
     payloadJson = json.dumps(payload)
