@@ -20,13 +20,13 @@ payload = {
         GoodEncoded
     ],
     "prompt": "paw patrol character",
-    "negative_prompt": "disfigured, kitsch, ugly, oversaturated, grain, low-res, Deformed, blurry, bad anatomy, disfigured, poorly drawn face, mutation, mutated, extra limb, ugly, poorly drawn hands, missing limb, blurry, floating limbs, disconnected limbs, malformed hands, blur, out of focus, long neck, long body, ugly, disgusting, poorly drawn, mutilated, mangled, old, surreal",
+    "negative_prompt": "kitsch, ugly, oversaturated, grain, low-res, Deformed, blurry",
     "steps": 45,
-    "width": 768,
-    "height": 768,
+    "width": 512,
+    "height": 512,
     "sampler_index": "Euler a",
-    "cfg_scale": 11,
-    "denoising_strength": 0.45
+    "cfg_scale": 7,
+    "denoising_strength": 0.65
 }
 
 payloadJson = json.dumps(payload)
