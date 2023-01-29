@@ -59,7 +59,7 @@ def arcadebtn_callback(channel):
       arcadebtn_triggered = False
 
 
-GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
+GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback, bouncetime=2000) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
 
 
 
