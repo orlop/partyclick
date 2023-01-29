@@ -17,7 +17,7 @@ from rpi_rf import RFDevice
 from picamera2 import Picamera2
 from libcamera import Transform
 from flash import flash_off, flash_on
-
+import ftplib
 
 
 # Define capture variables
