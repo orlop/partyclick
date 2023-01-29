@@ -27,7 +27,7 @@ def automatic_lambda_img2img():
         "height": 512,
         "sampler_index": "Euler a",
         "cfg_scale": 11,
-        "denoising_strength": 0.45
+        "denoising_strength": 0.2
     }
 
     payloadJson = json.dumps(payload)
