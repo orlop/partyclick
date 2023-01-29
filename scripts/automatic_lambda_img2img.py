@@ -21,7 +21,7 @@ def automatic_lambda_img2img():
             GoodEncoded
         ],
         "prompt": "paw patrol (dog) wearing a uniform",
-        "negative_prompt": "human, boy, girl, ugly, oversaturated, grain, low-res, Deformed, blurry",
+        #"negative_prompt": "human, boy, girl, ugly, oversaturated, grain, low-res, Deformed, blurry",
         "steps": 45,
         "width": 512,
         "height": 512,
