@@ -46,6 +46,6 @@ def uploadtoftp():
     session.quit()
 
 
-def upload-image():
+def upload_image():
     uploadtoftp()
     generateqr(url)

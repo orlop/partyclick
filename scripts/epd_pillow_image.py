@@ -20,7 +20,7 @@ from PIL import Image
 from adafruit_epd.il0373 import Adafruit_IL0373
 
 
-def epd-pillow-image():
+def epd_pillow_image():
     # create the spi device and pins we will need
     spi = busio.SPI(board.SCK, MOSI=board.MOSI, MISO=board.MISO)
     ecs = digitalio.DigitalInOut(board.CE0)
