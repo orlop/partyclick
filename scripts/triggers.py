@@ -90,7 +90,7 @@ while True:
    if rfdevice.rx_code_timestamp != timestamp: 
          timestamp = rfdevice.rx_code_timestamp 
          if str(rfdevice.rx_code) == code_of_interest: 
-         photobooth()
-         time.sleep(1) # prevent registering multiple times 
+            photobooth()
+            time.sleep(1) # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()
