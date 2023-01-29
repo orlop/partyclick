@@ -51,3 +51,8 @@ def automatic_lambda_img2img():
             pnginfo = PngImagePlugin.PngInfo()
             pnginfo.add_text("parameters", response2.json().get("info"))
             image.save(img2img_name, pnginfo=pnginfo)
+    
+    # Execute bash command fbi to send the photo to the HDMI (--vt 1) output
+    bashCommand = "sudo fbi --autozoom --noverbose --vt 1 /home/partyclick/shared/img2img.jpg"
+    process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
+    output, error = process.communicate()
