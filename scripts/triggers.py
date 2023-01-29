@@ -49,8 +49,8 @@ def photobooth():
    snap(picam2=picam2, capture_filename=capture_filename)
    flash_off()
    automatic_lambda_img2img.automatic_lambda_img2img()
-   upload_image()
-   epd_pillow_image()
+   upload_image.upload_image()
+   epd_pillow_image.epd_pillow_image()
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
@@ -59,8 +59,8 @@ def arcadebtn_callback(channel):
    snap(picam2=picam2, capture_filename=capture_filename)
    flash_off()
    automatic_lambda_img2img.automatic_lambda_img2img()
-   upload_image()
-   epd_pillow_image()
+   upload_image.upload_image()
+   epd_pillow_image.epd_pillow_image()
    time.sleep(1)  # prevent registering multiple times 
 
 
@@ -99,8 +99,8 @@ while True:
                snap(picam2=picam2, capture_filename=capture_filename)
                flash_off()
                automatic_lambda_img2img.automatic_lambda_img2img()
-               upload_image()
-               epd_pillow_image()
+               upload_image.upload_image()
+               epd_pillow_image.epd_pillow_image()
                time.sleep(1) # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()
