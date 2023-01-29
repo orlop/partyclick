@@ -17,7 +17,11 @@ from rpi_rf import RFDevice
 from picamera2 import Picamera2
 from libcamera import Transform
 from flash import flash_off, flash_on
-import ftplib
+
+
+import automatic-lambda-img2img
+import epd-pillow-image
+import upload-image
 
 
 # Define capture variables
@@ -44,9 +48,9 @@ def photobooth():
    flash_on()
    snap(picam2=picam2, capture_filename=capture_filename)
    flash_off()
-   exec(open('scripts/automatic-lambda-img2img.py').read())
-   exec(open('scripts/upload-image.py').read())
-   exec(open('scripts/epd-pillow-image.py').read())
+   automatic-lambda-img2img()
+   upload-image()
+   epd-pillow-image()
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
@@ -54,9 +58,9 @@ def arcadebtn_callback(channel):
    flash_on()
    snap(picam2=picam2, capture_filename=capture_filename)
    flash_off()
-   exec(open('scripts/automatic-lambda-img2img.py').read())
-   exec(open('scripts/upload-image.py').read())
-   exec(open('scripts/epd-pillow-image.py').read())
+   automatic-lambda-img2img()
+   upload-image()
+   epd-pillow-image()
    time.sleep(1)  # prevent registering multiple times 
 
 
@@ -94,9 +98,9 @@ while True:
                flash_on()
                snap(picam2=picam2, capture_filename=capture_filename)
                flash_off()
-               exec(open('scripts/automatic-lambda-img2img.py').read())
-               exec(open('scripts/upload-image.py').read())
-               exec(open('scripts/epd-pillow-image.py').read())
+               automatic-lambda-img2img()
+               upload-image()
+               epd-pillow-image()
                time.sleep(1) # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()

@@ -45,5 +45,7 @@ def uploadtoftp():
     file.close()                                    # close file and FTP
     session.quit()
 
-uploadtoftp()
-generateqr(url)
+
+def upload-image():
+    uploadtoftp()
+    generateqr(url)
