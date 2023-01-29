@@ -48,15 +48,12 @@ def photobooth():
    exec(open('scripts/upload-image.py').read())
    exec(open('scripts/epd-pillow-image.py').read())
 
-arcadebtn_triggered = False
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
    if not arcadebtn_triggered:
-      arcadebtn_triggered = True
       print("Arcade button triggered.")
       photobooth()
       time.sleep(1)  # prevent registering multiple times 
-      arcadebtn_triggered = False
 
 
 GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback, bouncetime=2000) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
