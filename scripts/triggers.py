@@ -51,7 +51,12 @@ def photobooth():
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
    print("Arcade button triggered.")
-   photobooth()
+   flash_on()
+   snap(picam2=picam2, capture_filename=capture_filename)
+   flash_off()
+   exec(open('scripts/automatic-lambda-img2img.py').read())
+   exec(open('scripts/upload-image.py').read())
+   exec(open('scripts/epd-pillow-image.py').read())
    time.sleep(1)  # prevent registering multiple times 
 
 
@@ -86,7 +91,12 @@ while True:
    if rfdevice.rx_code_timestamp != timestamp: 
          timestamp = rfdevice.rx_code_timestamp 
          if str(rfdevice.rx_code) == code_of_interest: 
-            photobooth()
-            time.sleep(1) # prevent registering multiple times 
+               flash_on()
+               snap(picam2=picam2, capture_filename=capture_filename)
+               flash_off()
+               exec(open('scripts/automatic-lambda-img2img.py').read())
+               exec(open('scripts/upload-image.py').read())
+               exec(open('scripts/epd-pillow-image.py').read())
+               time.sleep(1) # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()
