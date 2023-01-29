@@ -19,9 +19,9 @@ from libcamera import Transform
 from flash import flash_off, flash_on
 
 
-import automatic-lambda-img2img
-import epd-pillow-image
-import upload-image
+import automatic_lambda_img2img
+import epd_pillow_image
+import upload_image
 
 
 # Define capture variables
