@@ -40,12 +40,23 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(ArcadeBtnPin, GPIO.IN, pull_up_down=GPIO.PUD_UP) # GPIO BCM Pin 17 = Board Pin 11
 #GPIO.setup(RFPin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN) # set up as an input
 
+def photobooth():
+   flash_on()
+   snap(picam2=picam2, capture_filename=capture_filename)
+   flash_off()
+   exec(open('scripts/automatic-lambda-img2img.py').read())
+   exec(open('scripts/upload-image.py').read())
+   exec(open('scripts/epd-pillow-image.py').read())
 
+arcadebtn_triggered = False
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
-   print("Arcade button triggered.")
-   snap(picam2=picam2, capture_filename=capture_filename) 
-   time.sleep(1)  # prevent registering multiple times 
+   if not arcadebtn_triggered:
+      arcadebtn_triggered = True
+      print("Arcade button triggered.")
+      photobooth()
+      time.sleep(1)  # prevent registering multiple times 
+      arcadebtn_triggered = False
 
 
 GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
@@ -77,14 +88,9 @@ code_of_interest = '5518280'
 #
 while True: 
    if rfdevice.rx_code_timestamp != timestamp: 
-       timestamp = rfdevice.rx_code_timestamp 
-       if str(rfdevice.rx_code) == code_of_interest: 
-            flash_on()
-            snap(picam2=picam2, capture_filename=capture_filename)
-            time.sleep(1)  # prevent registering multiple times 
-            flash_off()
-            exec(open('scripts/automatic-lambda-img2img.py').read())
-            exec(open('scripts/upload-image.py').read())
-            exec(open('scripts/epd-pillow-image.py').read())
+         timestamp = rfdevice.rx_code_timestamp 
+         if str(rfdevice.rx_code) == code_of_interest: 
+         photobooth()
+         time.sleep(1) # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()
