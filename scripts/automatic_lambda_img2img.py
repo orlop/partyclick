@@ -5,6 +5,9 @@ import base64
 from PIL import Image, PngImagePlugin
 from io import BytesIO
 
+import subprocess
+import time
+
 def automatic_lambda_img2img():
     url = "http://155.248.202.177:7860"
     capture_filename="/home/partyclick/shared/snapshot.jpg"
