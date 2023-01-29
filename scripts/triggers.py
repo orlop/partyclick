@@ -60,7 +60,7 @@ def arcadebtn_callback(channel):
    time.sleep(1)  # prevent registering multiple times 
 
 
-GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback, bouncetime=2000) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
+GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback, bouncetime=20000) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
 
 
 
