@@ -50,7 +50,7 @@ def photobooth():
    flash_off()
    automatic_lambda_img2img.automatic_lambda_img2img()
    upload_image.upload_image()
-   epd_pillow_image.epd_pillow_image()
+   #epd_pillow_image.epd_pillow_image()
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
@@ -60,7 +60,7 @@ def arcadebtn_callback(channel):
    flash_off()
    automatic_lambda_img2img.automatic_lambda_img2img()
    upload_image.upload_image()
-   epd_pillow_image.epd_pillow_image()
+   #epd_pillow_image.epd_pillow_image()
    time.sleep(1)  # prevent registering multiple times 
 
 
@@ -100,7 +100,7 @@ while True:
                flash_off()
                automatic_lambda_img2img.automatic_lambda_img2img()
                upload_image.upload_image()
-               epd_pillow_image.epd_pillow_image()
+               #epd_pillow_image.epd_pillow_image()
                time.sleep(1) # prevent registering multiple times 
    time.sleep(0.01) 
 rfdevice.cleanup()
