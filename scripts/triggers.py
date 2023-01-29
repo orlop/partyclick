@@ -50,10 +50,9 @@ def photobooth():
 
 # Threaded callback to monitor physical button press
 def arcadebtn_callback(channel):
-   if not arcadebtn_triggered:
-      print("Arcade button triggered.")
-      photobooth()
-      time.sleep(1)  # prevent registering multiple times 
+   print("Arcade button triggered.")
+   photobooth()
+   time.sleep(1)  # prevent registering multiple times 
 
 
 GPIO.add_event_detect(ArcadeBtnPin, GPIO.FALLING, callback=arcadebtn_callback, bouncetime=2000) # Watch for GPIO 17 to be grounded and call arcadebtn_callback()
